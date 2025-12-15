@@ -6,25 +6,6 @@
   <title>G.N.S Japan Co., Ltd.</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
-    .hidden {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: all 0.8s ease;
-}
-
-.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-body {
-  opacity: 0;
-  transition: opacity 0.8s ease;
-}
-
-body.loaded {
-  opacity: 1;
-}
     * { box-sizing: border-box; }
     body {
       margin: 0;
@@ -36,12 +17,28 @@ body.loaded {
     header {
       background: linear-gradient(135deg, #0f172a, #1e293b);
       color: #fff;
-      padding: 90px 20px;
-      text-align: center;
+      padding: 80px 20px;
       animation: fadeDown 1s ease-out;
     }
-    header h1 { font-size: 2.6rem; margin-bottom: 12px; }
-    header p { font-size: 1.15rem; opacity: 0.9; }
+
+    .brand {
+      max-width: 1100px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo {
+      width: 70px;
+      height: 70px;
+      object-fit: contain;
+      background: #fff;
+      border-radius: 12px;
+      padding: 8px;
+    }
+    header h1 { font-size: 2.4rem; margin: 0 0 8px 0; }
+    header p { font-size: 1.05rem; opacity: 0.9; margin: 0; }
 
     .lang-switch {
       position: fixed;
@@ -86,10 +83,32 @@ body.loaded {
       gap: 22px;
     }
     .service-card {
-      padding: 28px;
-      border-radius: 14px;
-      background: #f9fafb;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      padding: 30px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, #f8fafc, #eef2ff);
+      border: 1px solid #e5e7eb;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+      transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, transparent, rgba(37,99,235,0.08), transparent);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .service-card:hover::before {
+      opacity: 1;
+    }
+
+    .service-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.12);
     }
     .service-card:hover {
       transform: translateY(-6px);
@@ -166,10 +185,15 @@ body.loaded {
 <div class="lang-switch" onclick="toggleLang()">日本語 / EN</div>
 
 <header>
-  <h1 data-en="G.N.S Japan Co., Ltd." data-ja="G.N.Sジャパン株式会社">G.N.S Japan Co., Ltd.</h1>
-  <p data-en="Professional Accident Repair & Vehicle Maintenance" data-ja="事故修理・車両整備の専門ガレージ">
-    Professional Accident Repair & Vehicle Maintenance
-  </p>
+  <div class="brand">
+    <img src="IMG_9547.jpeg" alt="G.N.S Japan Logo" class="logo" />
+    <div>
+      <h1 data-en="G.N.S Japan Co., Ltd." data-ja="G.N.Sジャパン株式会社">G.N.S Japan Co., Ltd.</h1>
+      <p data-en="Professional Accident Repair & Vehicle Maintenance" data-ja="事故修理・車両整備の専門ガレージ">
+        Professional Accident Repair & Vehicle Maintenance
+      </p>
+    </div>
+  </div>
 </header>
 
 <section>
@@ -191,12 +215,11 @@ body.loaded {
 </section>
 
 <section>
-  <h2 data-en="Gallery" data-ja="作業実績">Gallery</h2>
   <div class="gallery">
-    <div>Photo 1</div>
-    <div>Photo 2</div>
-    <div>Photo 3</div>
-  </div>
+  <img src="pics1.jpg" alt="Repair work 1">
+  <img src="pics2.jpg" alt="Repair work 2">
+  <img src="pics3.jpg" alt="Repair work 3">
+</div>
 </section>
 
 <section>
@@ -204,7 +227,7 @@ body.loaded {
   <p><strong>Phone:</strong> +81 70 9133 7785</p>
   <p><strong>Email:</strong> isasisblack@gmail.com</p>
 
-  <form action="https://formspree.io/f/mblnbvov" method="POST">
+  <form action="https://formspree.io/f/xeojzvpb" method="POST">
     <input type="text" name="name" placeholder="Your Name" required>
     <input type="email" name="email" placeholder="Your Email" required>
     <textarea name="message" rows="5" placeholder="Your inquiry" required></textarea>
@@ -221,10 +244,16 @@ body.loaded {
   <p>© 2025 G.N.S Japan Co., Ltd. | All rights reserved</p>
 </footer>
 
-<script src="app.js"></script>
+<script>
+  let lang = 'en';
+  function toggleLang() {
+    lang = lang === 'en' ? 'ja' : 'en';
+    document.querySelectorAll('[data-en]').forEach(el => {
+      el.textContent = el.getAttribute('data-' + lang);
+    });
+  }
+</script>
 
 </body>
 </html>
-
-
 

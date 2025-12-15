@@ -4,56 +4,94 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>G.N.S Japan Co., Ltd.</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
+    * { box-sizing: border-box; }
     body {
-      font-family: Arial, Helvetica, sans-serif;
       margin: 0;
-      background: #f4f4f4;
-      color: #333;
+      font-family: 'Inter', sans-serif;
+      background: #f5f7fa;
+      color: #1f2937;
+      line-height: 1.6;
     }
     header {
-      background: #1f2937;
+      background: linear-gradient(135deg, #0f172a, #1e293b);
       color: #fff;
-      padding: 20px;
+      padding: 80px 20px;
       text-align: center;
+      animation: fadeDown 1s ease-out;
+    }
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+    header p {
+      font-size: 1.1rem;
+      opacity: 0.9;
     }
     section {
-      padding: 30px;
-      max-width: 900px;
-      margin: auto;
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 40px;
       background: #fff;
-      margin-top: 20px;
-      border-radius: 8px;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+      animation: fadeUp 1s ease forwards;
     }
     h2 {
-      border-bottom: 2px solid #ddd;
-      padding-bottom: 10px;
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      position: relative;
     }
-    ul {
-      line-height: 1.8;
-    }
-    .contact a {
-      display: inline-block;
-      margin: 10px 10px 0 0;
-      padding: 12px 20px;
+    h2::after {
+      content: '';
+      width: 60px;
+      height: 4px;
       background: #2563eb;
-      color: #fff;
-      text-decoration: none;
-      border-radius: 6px;
+      display: block;
+      margin-top: 8px;
+      border-radius: 2px;
     }
-    .contact a:hover {
-      background: #1d4ed8;
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .service-card {
+      padding: 25px;
+      border-radius: 12px;
+      background: #f9fafb;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+    }
+    .contact-info {
+      font-size: 1.05rem;
     }
     iframe {
       width: 100%;
-      height: 300px;
-      border: 0;
+      height: 320px;
+      border: none;
+      border-radius: 12px;
       margin-top: 15px;
     }
     footer {
+      background: #0f172a;
+      color: #cbd5f5;
       text-align: center;
-      padding: 20px;
-      color: #666;
+      padding: 30px 15px;
+      margin-top: 60px;
+      font-size: 0.95rem;
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
@@ -61,44 +99,42 @@
 
 <header>
   <h1>G.N.S Japan Co., Ltd.</h1>
-  <p>Reliable Accident Repair & Vehicle Maintenance</p>
+  <p>Professional Accident Repair & Vehicle Maintenance in Japan</p>
 </header>
 
 <section>
   <h2>About Us</h2>
   <p>
-    G.N.Sジャパン株式会社 provides professional accident repairs and vehicle maintenance services.
-    We handle everything from bodywork to essential mechanical repairs with care and reliability.
+    G.N.Sジャパン株式会社 is a trusted garage providing high-quality accident repairs and vehicle maintenance.
+    From bodywork and spare parts to essential mechanical services, we focus on safety, reliability, and customer satisfaction.
   </p>
 </section>
 
 <section>
   <h2>Our Services</h2>
-  <ul>
-    <li>Accident repairs (bodywork & spare parts)</li>
-    <li>Bodywork and panel repair</li>
-    <li>Brake pad replacement</li>
-    <li>Oil change & routine maintenance</li>
-  </ul>
+  <div class="services">
+    <div class="service-card">Accident repair (spare parts & bodywork)</div>
+    <div class="service-card">Panel repair & exterior restoration</div>
+    <div class="service-card">Brake pad replacement</div>
+    <div class="service-card">Oil change & routine maintenance</div>
+  </div>
 </section>
 
-<section class="contact">
-  <h2>Contact Us</h2>
-  <p>Feel free to call or email us for inquiries.</p>
-
-  <a href="tel:+817091337785">📞 Call Us</a>
-  <a href="mailto:isasisblack@gmail.com">✉️ Email Us</a>
+<section>
+  <h2>Contact Information</h2>
+  <div class="contact-info">
+    <p><strong>Phone:</strong> +81 70 9133 7785</p>
+    <p><strong>Email:</strong> isasisblack@gmail.com</p>
+  </div>
 </section>
 
 <section>
   <h2>Our Location</h2>
-  <iframe 
-    src="https://www.google.com/maps?q=35.697999,140.158889&hl=en&z=15&output=embed">
-  </iframe>
+  <iframe src="https://www.google.com/maps?q=35.697999,140.158889&hl=en&z=15&output=embed"></iframe>
 </section>
 
 <footer>
-  <p>© 2025 G.N.S Japan Co., Ltd. All rights reserved.</p>
+  <p>© 2025 G.N.S Japan Co., Ltd. | All rights reserved</p>
 </footer>
 
 </body>

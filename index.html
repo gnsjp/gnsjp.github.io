@@ -6,6 +6,25 @@
   <title>G.N.S Japan Co., Ltd.</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
+    .hidden {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+
+.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+body {
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+
+body.loaded {
+  opacity: 1;
+}
     * { box-sizing: border-box; }
     body {
       margin: 0;
@@ -206,5 +225,6 @@
 
 </body>
 </html>
+
 
 

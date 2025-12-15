@@ -1,152 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>G.N.S Japan Co., Ltd.</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <style>
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: 'Inter', sans-serif;
-      background: #f5f7fa;
-      color: #1f2937;
-      line-height: 1.6;
-    }
-   header {
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>G.N.S Japan Co., Ltd.</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: #f5f7fa;
+  color: #1f2937;
+}
+
+/* ================= HEADER ================= */
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  padding: 80px 20px;
   background: linear-gradient(135deg, #0f172a, #1e293b);
   color: #fff;
-  padding: 90px 20px;
-  animation: fadeDown 1s ease-out;
+  transition: padding 0.3s ease;
 }
 
-    .logo {
-  width: 200px;       /* desktop readable */
-  height: 200px;
-  object-fit: contain;
-  background: #ffffff;
-  border-radius: 16px;
-  padding: 12px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
-}
-
-    /* ---------- Mobile Header Fix ---------- */
-@media (max-width: 600px) {
-
-  .brand {
+.brand {
   max-width: 1100px;
-  margin: auto;
+  margin: 0 auto;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 32px;
 }
 
-  .logo {
-    width: 85px;
-    height: 85px;
-    padding: 10px;
-  }
+.logo {
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+  background: #fff;
+  border-radius: 16px;
+  padding: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
 
-  header h1 {
-  font-size: 3.2rem;   /* STRONG desktop presence */
-  margin: 0 0 10px 0;
+header h1 {
+  font-size: 3rem;
+  margin: 0;
   line-height: 1.2;
 }
 
-
-  header p {
+header p {
   font-size: 1.15rem;
   opacity: 0.9;
-  margin: 0;
+  margin-top: 8px;
 }
 
+/* ================= SECTIONS ================= */
+
+section {
+  max-width: 1100px;
+  margin: 50px auto;
+  padding: 45px;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.06);
 }
 
-    .lang-switch {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      background: #2563eb;
-      color: #fff;
-      padding: 8px 14px;
-      border-radius: 20px;
-      cursor: pointer;
-      font-size: 0.9rem;
-      z-index: 1000;
-    }
-
-    section {
-      max-width: 1100px;
-      margin: 50px auto;
-      padding: 45px;
-      background: #fff;
-      border-radius: 18px;
-      box-shadow: 0 12px 30px rgba(0,0,0,0.06);
-      animation: fadeUp 1s ease forwards;
-    }
-    h2 {
-      font-size: 1.9rem;
-      margin-bottom: 22px;
-      position: relative;
-    }
-    h2::after {
-      content: '';
-      width: 70px;
-      height: 4px;
-      background: #2563eb;
-      display: block;
-      margin-top: 10px;
-      border-radius: 2px;
-    }
-
-    .services {
-display: grid;
-grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-gap: 22px;
+h2 {
+  font-size: 1.9rem;
+  margin-bottom: 22px;
 }
+
+h2::after {
+  content: "";
+  width: 70px;
+  height: 4px;
+  background: #2563eb;
+  display: block;
+  margin-top: 10px;
+  border-radius: 2px;
+}
+
+/* ================= SERVICES ================= */
+
+.services {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 22px;
+}
+
 .service-card {
-padding: 30px;
-border-radius: 16px;
-background: linear-gradient(135deg, #f8fafc, #eef2ff);
-border: 2px solid rgba(37,99,235,0.25); /* visible outline */
-box-shadow: 0 10px 25px rgba(0,0,0,0.06);
-transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease, border-color 0.3s ease;
-position: relative;
-overflow: hidden;
+  padding: 30px;
+  border-radius: 16px;
+  background: #f8fafc;
+  border: 2px solid rgba(37,99,235,0.3);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+  transition: all 0.3s ease;
 }
-
 
 .service-card:hover {
-border-color: #2563eb; /* stronger on hover */
-transform: translateY(-6px);
-box-shadow: 0 18px 35px rgba(0,0,0,0.12);
+  transform: translateY(-6px);
+  border-color: #2563eb;
+  box-shadow: 0 18px 35px rgba(0,0,0,0.12);
 }
 
-
-.service-card::before {
-content: "";
-position: absolute;
-inset: 0;
-background: linear-gradient(120deg, transparent, rgba(37,99,235,0.08), transparent);
-opacity: 0;
-transition: opacity 0.3s ease;
-}
-
-
-.service-card:hover::before {
-opacity: 1;
-}
-
-
-.service-card:hover {
-transform: translateY(-8px);
-box-shadow: 0 20px 40px rgba(0,0,0,0.12);
-}
-.service-card:hover {
-transform: translateY(-6px);
-box-shadow: 0 18px 35px rgba(0,0,0,0.1);
-}
+/* ================= GALLERY ================= */
 
 .gallery {
   display: grid;
@@ -157,148 +120,209 @@ box-shadow: 0 18px 35px rgba(0,0,0,0.1);
 .gallery img {
   width: 100%;
   height: 220px;
-  object-fit: cover;   /* THIS FIXES EVERYTHING */
+  object-fit: cover;
   border-radius: 16px;
   box-shadow: 0 12px 30px rgba(0,0,0,0.08);
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-  background: #e5e7eb;
+  transition: transform 0.4s ease;
+  cursor: pointer;
 }
 
 .gallery img:hover {
   transform: scale(1.05);
-  box-shadow: 0 20px 45px rgba(0,0,0,0.15);
 }
-    form {
-      display: grid;
-      gap: 15px;
-      max-width: 600px;
-    }
-    input, textarea {
-      padding: 14px;
-      border-radius: 10px;
-      border: 1px solid #d1d5db;
-      font-size: 1rem;
-    }
-    button {
-      background: #2563eb;
-      color: #fff;
-      border: none;
-      padding: 14px;
-      border-radius: 10px;
-      font-size: 1rem;
-      cursor: pointer;
-    }
-    button:hover { background: #1d4ed8; }
 
-    iframe {
-      width: 100%;
-      height: 330px;
-      border: none;
-      border-radius: 14px;
-      margin-top: 15px;
-    }
+/* ================= FORM ================= */
 
-    footer {
-      background: #0f172a;
-      color: #cbd5f5;
-      text-align: center;
-      padding: 35px 15px;
-      margin-top: 70px;
-      font-size: 0.95rem;
-    }
+form {
+  display: grid;
+  gap: 15px;
+  max-width: 600px;
+}
 
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes fadeDown {
-      from { opacity: 0; transform: translateY(-30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-  </style>
+input, textarea {
+  padding: 14px;
+  border-radius: 10px;
+  border: 1px solid #d1d5db;
+  font-size: 1rem;
+}
+
+button {
+  background: #2563eb;
+  color: #fff;
+  border: none;
+  padding: 14px;
+  border-radius: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+button:hover { background: #1d4ed8; }
+
+/* ================= MAP ================= */
+
+iframe {
+  width: 100%;
+  height: 330px;
+  border: none;
+  border-radius: 14px;
+}
+
+/* ================= FOOTER ================= */
+
+footer {
+  background: #0f172a;
+  color: #cbd5f5;
+  text-align: center;
+  padding: 35px 15px;
+  margin-top: 70px;
+}
+
+/* ================= REVEAL ================= */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 700px) {
+  .brand {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .logo {
+    width: 95px;
+    height: 95px;
+  }
+
+  header h1 { font-size: 2rem; }
+  header p { font-size: 1rem; }
+}
+
+/* ================= LIGHTBOX ================= */
+
+#lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+#lightbox img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 12px;
+}
+</style>
 </head>
+
 <body>
 
-<div class="lang-switch" onclick="toggleLang()">日本語 / EN</div>
+<!-- LIGHTBOX -->
+<div id="lightbox" onclick="closeLightbox()">
+  <img id="lightbox-img">
+</div>
 
 <header>
   <div class="brand">
-    <img src="IMG_9547.jpeg" alt="G.N.S Japan Logo" class="logo" />
+    <img src="IMG_9547.jpeg" alt="G.N.S Japan Logo" class="logo">
     <div>
-      <h1 data-en="G.N.S Japan Co., Ltd." data-ja="G.N.Sジャパン株式会社">G.N.S Japan Co., Ltd.</h1>
-      <p data-en="Professional Accident Repair & Vehicle Maintenance" data-ja="事故修理・車両整備の専門ガレージ">
-        Professional Accident Repair & Vehicle Maintenance
-      </p>
+      <h1>G.N.S Japan Co., Ltd.</h1>
+      <p>Professional Accident Repair & Vehicle Maintenance</p>
     </div>
   </div>
 </header>
 
-<section>
-  <h2 data-en="About Us" data-ja="会社概要">About Us</h2>
-  <p data-en="We provide reliable accident repairs and vehicle maintenance with a focus on safety and quality." 
-     data-ja="当社は安全と品質を重視した事故修理および車両整備を提供しています。">
-     We provide reliable accident repairs and vehicle maintenance with a focus on safety and quality.
+<section class="reveal">
+  <h2>About Us</h2>
+  <p>
+    We provide reliable accident repairs and vehicle maintenance with a strong focus on safety, quality, and customer satisfaction.
   </p>
 </section>
 
-<section>
-  <h2 data-en="Our Services" data-ja="サービス内容">Our Services</h2>
+<section class="reveal">
+  <h2>Our Services</h2>
   <div class="services">
-    <div class="service-card" data-en="Accident repair (bodywork & parts)" data-ja="事故修理（板金・部品交換）">Accident repair (bodywork & parts)</div>
-    <div class="service-card" data-en="Exterior & panel repair" data-ja="外装・板金修理">Exterior & panel repair</div>
-    <div class="service-card" data-en="Brake pad replacement" data-ja="ブレーキパッド交換">Brake pad replacement</div>
-    <div class="service-card" data-en="Oil change & maintenance" data-ja="オイル交換・点検">Oil change & maintenance</div>
+    <div class="service-card">Accident repair (bodywork & parts)</div>
+    <div class="service-card">Exterior & panel repair</div>
+    <div class="service-card">Brake pad replacement</div>
+    <div class="service-card">Oil change & maintenance</div>
   </div>
 </section>
 
-<section>
+<section class="reveal">
   <div class="gallery">
-  <img src="pics1.jpg" alt="Repair work 1">
-  <img src="pics2.jpg" alt="Repair work 2">
-  <img src="pics3.jpg" alt="Repair work 3">
-</div>
+    <img src="pics1.jpg" onclick="openLightbox(this.src)">
+    <img src="pics2.jpg" onclick="openLightbox(this.src)">
+    <img src="pics3.jpg" onclick="openLightbox(this.src)">
+  </div>
 </section>
 
-<section>
-  <h2 data-en="Contact Us" data-ja="お問い合わせ">Contact Us</h2>
+<section class="reveal">
+  <h2>Contact Us</h2>
   <p><strong>Phone:</strong> +81 70 9133 7785</p>
   <p><strong>Email:</strong> gnsjp@yahoo.co.jp</p>
 
   <form action="https://formspree.io/f/mblnbvov" method="POST">
-  <input type="hidden" name="_subject" value="New Garage Inquiry">
-
-  <input type="text" name="name" placeholder="Your Name" required>
-
-  <input type="email" name="email" placeholder="Your Email" required>
-
-  <textarea name="message" rows="5" placeholder="Your inquiry" required></textarea>
-
-  <button type="submit">Send Inquiry</button>
-</form>
+    <input type="hidden" name="_subject" value="New Garage Inquiry">
+    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="email" name="email" placeholder="Your Email" required>
+    <textarea name="message" rows="5" placeholder="Your inquiry" required></textarea>
+    <button type="submit">Send Inquiry</button>
+  </form>
 </section>
 
-<section>
-  <h2 data-en="Our Location" data-ja="所在地">Our Location</h2>
-  <iframe src="https://www.google.com/maps?q=35.697999,140.158889&hl=en&z=15&output=embed"></iframe>
+<section class="reveal">
+  <h2>Our Location</h2>
+  <iframe src="https://www.google.com/maps?q=35.697999,140.158889&z=15&output=embed"></iframe>
 </section>
 
 <footer>
-  <p>© 2025 G.N.S Japan Co., Ltd. | All rights reserved</p>
+  © 2025 G.N.S Japan Co., Ltd. | All rights reserved
 </footer>
 
 <script>
-  let lang = 'en';
-  function toggleLang() {
-    lang = lang === 'en' ? 'ja' : 'en';
-    document.querySelectorAll('[data-en]').forEach(el => {
-      el.textContent = el.getAttribute('data-' + lang);
-    });
-  }
+/* HEADER SHRINK */
+const header = document.querySelector("header");
+window.addEventListener("scroll", () => {
+  header.style.padding = window.scrollY > 80 ? "40px 20px" : "80px 20px";
+});
+
+/* REVEAL */
+const reveals = document.querySelectorAll(".reveal");
+function revealOnScroll() {
+  reveals.forEach(el => {
+    if (el.getBoundingClientRect().top < window.innerHeight - 100) {
+      el.classList.add("active");
+    }
+  });
+}
+window.addEventListener("scroll", revealOnScroll);
+revealOnScroll();
+
+/* LIGHTBOX */
+function openLightbox(src) {
+  document.getElementById("lightbox").style.display = "flex";
+  document.getElementById("lightbox-img").src = src;
+}
+function closeLightbox() {
+  document.getElementById("lightbox").style.display = "none";
+}
 </script>
 
 </body>
 </html>
-
 
 
 
